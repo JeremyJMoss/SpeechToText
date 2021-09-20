@@ -11,7 +11,7 @@ const recBtn = document.getElementById("rec");
 const updateNotes = function () {
   let html = ``;
   notesArray.forEach((n) => {
-    html += `<div class="card">
+    html += `<div class="card mb-2">
         <div class="card-body">
           <p class="mb-0">${n.notes}</p>
           <p class="mb-0 float-end text-secondary fs-6">
@@ -70,7 +70,7 @@ recognition.onresult = function (event) {
   let transcript = event.results[current][0].transcript;
   let mobileRepeatBug =
     current == 1 && transcript == event.results[0][0].transcript;
-  if (mobileRepeatBug) {
+  if (!mobileRepeatBug) {
     noteContent += transcript;
     note.value = noteContent;
   }
