@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech to Text app</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            class="brand-logo"
+            src="https://res.cloudinary.com/ddtrp05ux/image/upload/c_scale,h_85,w_150/v1563550528/The%20Hacking%20School%20Website/ths-trans_fi9th0.png
+            "
+            alt="The Hacking School logo"
+          />
+        </a>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="m-5">
+            <h4>Voice Notes</h4>
+            <p class="page-description">
+              This app allows you to take voice or text notes
+            </p>
+            <hr />
+            <p class="no-browser-support">
+              Sorry, your browser doesn't support the web speech API. Try
+              opening this in Goggle Chrome
+            </p>
+            <form id="notes" class="position-relative">
+              <label class="fw-bolder">Add Notes</label>
+              <button
+                class="btn btn-info position-absolute mic-info"
+                type="btn"
+                id="rec"
+              >
+                <img
+                  height="20"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACm0lEQVRoge2YO28TQRSFzzjhaTA1jwYnNLRINBhEHgWE9NBDfgCigioNBEVCggJEkBA1XaBOrIgmoqGDNIhIRCZBkAIcyUDhj8JrdLPyY+yx2YB9pJWu5s6595x9zo7Ux38GYBx4AqwAW9GxEo2NJa2vLoATwBLNkQeGk9a7DUAO2PQQX8UmkEtatyQJOA58aUG8NZH8lQAW2xBfxVLS4scCxFcxGqIhFejhSiBfki6HkEMNnA3kS9K5EHKogaOBfEk6FkJ2IWSAEP4fEc61rSP0CiSOvoGk0TeQNPoGkkbfQNLwMgDcA0rAbLcFAXeAInDbZ77XJxz4KWm3pF/OuT1mvONLCaAkaa+kH865fU25Pg2s0Fizbhio2aseeuMZ2MnwNbBVDYADtcYD8N3Uzpjxog/Z18CGiY+YuODJbwRb43CdnnXRjoEhE7/y5DeCrWG3WdZ9yL4Glk08YeLnnvxGsDVs7eX4xLYBnDfbIB+BAZPLB2ypLJg6g8CayQX97McN7AI+m+JXTW6Y1rYVq/gKZE2dKZPbAAY7ZiBqcMM0WAMOmlwuEtSK+DOGnwEKJn+9o+KjJvuBddNkHkiZ/BB+24wLsTOfAl6afAFouoRo18QkUDbN7lsT0ZxRYA54R2VRVgTeAo+BkdjcFPDA1CsDE+omgLuxMzqPuZ1aqJMBXsRqzXRDc7zxAPAs1vgTcA3zdmrCn2L77Qjw1IffEQAOmK1xfxeAh8Al4CSV5yYdxZPAo8hsHDNA0C5hu0YuAqs1BPliFbjw14XHTKSBWy0a+QDcBNKh/Tt22ai8jcYljUg6Jem0pENR+puk15LeSMpLWnTOlTvVuysAps0Zn+5Wn575odmx6BtogFKd+N8AkAXeR0e2OaNH8Rsoe6/4Cqp44QAAAABJRU5ErkJggg=="
+                />
+              </button>
+              <textarea
+                class="form-control"
+                name="notes"
+                placeholder="Add Notes"
+                required
+                rows="6"
+                id="note"
+              ></textarea>
+              <p class="recording-instructions">
+                Press the
+                <img
+                  height="15"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACdklEQVRoge2Zv08UQRTHP3dIoehZa+cBja2JjcQIWPiDHnrgDzBWWtEoxsQECwmYEGo7tAZCbIiNnRwFgQRyilEKPZILDVjMbHi7uLuzO3Pswu0necnLzL4337e7Mzc7BwXnj/vAe6AG7Gur6bbBDHXF0gusAEcxtgz0ZKQxlD5gj3jxnu3pmFxwA/iFuXhZRC6exBLJxXu2koFeH4OkF+/ZgI2Ask0wMGIZDzDsIEdq1rF/ArVTVy1ohIhKYg0bASWbYC3ABal12M6BzCkKyJqigKwpCsiaooCsMS3gDdAEXrdQi8dL1PbihcukB6htw0Gg3XYf5JmkqduaJsJM9yBykFJIuw1hOWP1tc0cyC2mBewL/3JIe1r+Cr8ifKPvBNMCdoV/Xfh1w/goZI5rIWOGkqaAbuF/NoyPQuaQxyw/TIJNC1gV/iPhfzCMj0LmkLlXgxfacI/jNXsb6BB9y6Rf/xdFngvAjui767KATuCnSD4q+npIdqzo2W+gKvKMi75dXZBTnooBdoAroq9PC0oi/o6Ir6Ams9f/xLV4gEuoieUNsoB/DnVjdsy4iP/Ol4FPor8OXGxFAQBDwKEYbIqTC8EAMAusodbyBvANmAH6A9eWgbci3yH+idwSXuG/owv4XydTKsDHQK5JRxoj6QDmAwN/B8bwr05R8eP4X8cjYM4w3gkl1LdB8P2uA++Ax8BN1Lzp0v4QMI0qNhg3if0pYSoeAlv/EWRqW8CDU1cdoAt4TrJCNoFnOtYKl4+tjPqHsh+4BdwGruq+P8AX4Cvql3sJteLkmgmO7/hEqwZpmw+a3FIUEEEzxD8zVIENbdWYa9uXf+0SQOWQjWDNAAAAAElFTkSuQmCC"
+                />
+                and allow the access
+              </p>
+              <div class="text-end mt-2"></div>
+              <button class="btn btn-success" type="submit">Submit</button>
+              <button class="btn btn-warning" type="button" id="clear">
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="m-3">
+            <h3>Your Notes</h3>
+            <div id="notesResults"></div>
+            <!--<div class="card">
+              <div class="card-body">
+                <p class="mb-0">Hello World</p>
+                <p class="mb-0 final-end text-secondary">
+                  Mon Sep 20 2021 13:49:20 GMT+0530 (India Standard time)
+                </p>
+              </div>
+            </div>  -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

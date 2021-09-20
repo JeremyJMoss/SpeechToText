@@ -1,0 +1,13 @@
+.brand-logo {
+  height: 50px;
+  filter: invert();
+}
+
+.mic-info {
+  right: 10px;
+  top: 35px;
+}
+
+.no-browser-support {
+  display: none;
+}
